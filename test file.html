@@ -1,0 +1,1019 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>SwearVerse | Trendy Streetwear</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="SwearVerse - Bold printed shirts, hoodies & streetwear fashion. Shop exclusive designs with secure checkout." />
+  <meta name="keywords" content="Streetwear, printed shirts, hoodies, fashion, trendy" />
+  <meta name="author" content="SwearVerse" />
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Mailchimp Newsletter Popup CSS (placeholder) -->
+  <style>
+    /* Variables */
+    :root {
+      --black: #111111;
+      --neon-red-orange: #FF3D00;
+      --light-gray: #F7F7F7;
+      --font-bebas: 'Bebas Neue', cursive;
+      --font-oswald: 'Oswald', sans-serif;
+      --font-poppins: 'Poppins', sans-serif;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-poppins);
+      background: var(--light-gray);
+      color: var(--black);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    a {
+      color: var(--neon-red-orange);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background: var(--black);
+      color: var(--light-gray);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    header h1 {
+      font-family: var(--font-bebas);
+      font-size: 2rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav li {
+      font-family: var(--font-oswald);
+      font-weight: 600;
+    }
+    nav li a {
+      color: var(--light-gray);
+      font-size: 1rem;
+    }
+    /* Mobile Menu */
+    #menu-toggle {
+      display: none;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--neon-red-orange);
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--black);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      nav ul.open {
+        max-height: 300px;
+      }
+      nav li {
+        border-bottom: 1px solid #222;
+        padding: 1rem 2rem;
+      }
+      .menu-icon {
+        display: block;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      background: var(--black) url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--neon-red-orange);
+      user-select: none;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(17,17,17,0.75);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 0 1rem;
+    }
+    .hero-content h2 {
+      font-family: var(--font-bebas);
+      font-size: 4rem;
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+    .btn-primary {
+      background: var(--neon-red-orange);
+      color: var(--black);
+      padding: 0.8rem 2rem;
+      border: none;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      border-radius: 2px;
+    }
+    .btn-primary:hover {
+      background: #E03700;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      flex-grow: 1;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgb(255 61 0 / 0.4);
+    }
+    .product-img-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .product-img-wrapper img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .product-img-wrapper:hover img {
+      transform: scale(1.1);
+    }
+    /* Badges */
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--neon-red-orange);
+      color: white;
+      font-family: var(--font-oswald);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    .low-stock {
+      background: #d43f3a;
+    }
+    .product-info {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-title {
+      font-family: var(--font-oswald);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      color: var(--black);
+    }
+    .product-price {
+      color: var(--neon-red-orange);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .product-options {
+      margin: 0.5rem 0 1rem 0;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+    label {
+      font-weight: 600;
+      align-self: center;
+    }
+    select, input[type=number] {
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: var(--font-poppins);
+      font-size: 1rem;
+      width: 60px;
+    }
+    /* Add to Cart */
+    .btn-add-cart {
+      background: var(--neon-red-orange);
+      border: none;
+      color: var(--black);
+      padding: 0.6rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      width: 100%;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-add-cart:hover {
+      background: #E03700;
+    }
+    .reviews {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.6rem;
+    }
+    .stars {
+      color: #FFB400;
+      margin-right: 5px;
+    }
+
+    /* Cart Sidebar */
+    #cart-sidebar {
+      position: fixed;
+      right: 0; top: 0;
+      height: 100%;
+      width: 360px;
+      background: white;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 110;
+      display: flex;
+      flex-direction: column;
+    }
+    #cart-sidebar.active {
+      transform: translateX(0);
+    }
+    #cart-sidebar header {
+      padding: 1rem;
+      background: var(--black);
+      color: var(--light-gray);
+      font-family: var(--font-bebas);
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #cart-sidebar .close-cart {
+      cursor: pointer;
+      font-size: 1.5rem;
+      background: transparent;
+      border: none;
+      color: var(--light-gray);
+    }
+    #cart-items {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      font-family: var(--font-poppins);
+    }
+    .cart-item {
+      display: flex;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+    }
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 1rem;
+    }
+    .cart-item-details {
+      flex-grow: 1;
+    }
+    .cart-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: var(--black);
+    }
+    .cart-item-qty {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .cart-item-price {
+      font-weight: 700;
+      color: var(--neon-red-orange);
+      font-size: 0.95rem;
+    }
+    #checkout-btn {
+      background: var(--neon-red-orange);
+      border: none;
+      color: var(--black);
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin: 1rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #checkout-btn[disabled] {
+      background: #f9b19b;
+      cursor: not-allowed;
+    }
+    #checkout-btn:hover:not([disabled]) {
+      background: #E03700;
+    }
+
+    /* Popup Overlays */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 105;
+    }
+    .popup-overlay.active {
+      display: flex;
+    }
+    .popup {
+      background: white;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      padding: 2rem;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .popup h3 {
+      font-family: var(--font-oswald);
+      margin-bottom: 1rem;
+    }
+    .close-popup {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--neon-red-orange);
+    }
+    /* Size Chart Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    /* Customer Account Modal */
+    #account-modal form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #account-modal input, #account-modal button {
+      padding: 0.7rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    #account-modal button {
+      background: var(--neon-red-orange);
+      border: none;
+      color: var(--black);
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    #account-modal button:hover {
+      background: #E03700;
+    }
+
+    /* Wishlist Badge */
+    .wishlist-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    .wishlist-icon.active {
+      color: var(--neon-red-orange);
+    }
+
+    /* Blog Section */
+    #blog {
+      margin-top: 3rem;
+    }
+    #blog h2 {
+      font-family: var(--font-bebas);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+    .blog-posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .blog-post {
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-post img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .blog-content {
+      padding: 1rem;
+    }
+    .blog-content h3 {
+      font-family: var(--font-oswald);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .blog-content p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Social & WhatsApp Button */
+    #whatsapp-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--neon-red-orange);
+      color: var(--black);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 120;
+      user-select: none;
+      font-size: 2rem;
+    }
+
+    /* Responsive Helpers */
+    @media (max-width: 480px) {
+      .hero-content h2 {
+        font-size: 2.6rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1 tabindex="0" role="banner" onclick="window.location.href='#home'">SwearVerse</h1>
+    <nav role="navigation" aria-label="Primary navigation">
+      <div class="menu-icon" id="menu-icon" tabindex="0" aria-label="Toggle menu">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="#home" tabindex="0">Home</a></li>
+        <li><a href="#shop" tabindex="0">Shop</a></li>
+        <li><a href="#about" tabindex="0">About Us</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+        <li><a href="#faqs" tabindex="0">FAQs</a></li>
+      </ul>
+    </nav>
+    <button class="icon-button" id="cart-btn" aria-label="Open Cart" tabindex="0">&#128722;</button>
+    <button class="icon-button" id="account-btn" aria-label="User Account" tabindex="0">&#128100;</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home" role="banner" aria-label="Hero banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h2>Bold Streetwear, Unleashed</h2>
+      <p>Printed shirts, hoodies & more — Stand out with SwearVerse</p>
+      <button class="btn-primary" onclick="scrollToSection('shop')">Shop Now</button>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Shop Section -->
+    <section id="shop" aria-labelledby="shopHeading">
+      <h2 id="shopHeading" style="font-family: var(--font-bebas); font-size: 2.5rem; margin-bottom: 1rem;">Featured Products</h2>
+      <div class="products-grid" id="products-grid" aria-live="polite" aria-relevant="additions">
+        <!-- Products injected by JS -->
+      </div>
+    </section>
+
+    <!-- Blog & News -->
+    <section id="blog" aria-labelledby="blogHeading">
+      <h2 id="blogHeading">Latest Drops & Updates</h2>
+      <div class="blog-posts" id="blog-posts" aria-live="polite" aria-relevant="additions">
+        <!-- Blog posts inserted here -->
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" aria-labelledby="aboutHeading" style="margin: 3rem 0;">
+      <h2 id="aboutHeading" style="font-family: var(--font-bebas); font-size: 2.5rem; margin-bottom: 1rem;">About SwearVerse</h2>
+      <p>SwearVerse is a cutting-edge streetwear brand specializing in bold printed shirts, hoodies, and trendy fashion items. We combine style, comfort, and quality to bring you exclusive designs to stand out in the crowd.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contactHeading" style="margin: 3rem 0;">
+      <h2 id="contactHeading" style="font-family: var(--font-bebas); font-size: 2.5rem; margin-bottom: 1rem;">Contact Us</h2>
+      <form id="contact-form" aria-label="Contact Form" style="max-width: 400px;" onsubmit="handleContactSubmit(event)">
+        <label for="name">Name:</label>
+        <input id="name" type="text" required aria-required="true" />
+        <label for="email">Email:</label>
+        <input id="email" type="email" required aria-required="true" />
+        <label for="message">Message:</label>
+        <textarea id="message" rows="4" required aria-required="true"></textarea>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs" aria-labelledby="faqsHeading" style="margin: 3rem 0;">
+      <h2 id="faqsHeading" style="font-family: var(--font-bebas); font-size: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <dl>
+        <dt><strong>What is your shipping policy?</strong></dt>
+        <dd>We offer worldwide shipping with tracking on all orders above ₹1000.</dd>
+        <dt><strong>What is your return policy?</strong></dt>
+        <dd>Returns accepted within 15 days of delivery. Items must be unused.</dd>
+        <dt><strong>How do I track my order?</strong></dt>
+        <dd>Once shipped, you'll receive a tracking number via email.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 SwearVerse. All rights reserved.</p>
+    <p>
+      <a href="#privacy-policy">Privacy Policy</a> | 
+      <a href="#shipping-returns">Shipping & Returns</a> | 
+      <a href="#terms-conditions">Terms & Conditions</a>
+    </p>
+    <nav aria-label="Social media">
+      <a href="https://instagram.com/swearverse" target="_blank" rel="noopener" aria-label="Instagram" style="margin-right: 1rem;">Instagram</a>
+      <a href="#" aria-label="Facebook" style="margin-right: 1rem;">Facebook</a>
+      <a href="#" aria-label="Twitter">Twitter</a>
+    </nav>
+  </footer>
+
+  <!-- WhatsApp Chat Button -->
+  <div id="whatsapp-chat" role="button" aria-label="Chat on WhatsApp" tabindex="0" onclick="openWhatsApp()" onkeypress="if(event.key==='Enter') openWhatsApp()">💬</div>
+
+  <!-- Cart Sidebar -->
+  <aside id="cart-sidebar" aria-label="Shopping Cart" hidden>
+    <header>
+      <span>Shopping Cart</span>
+      <button class="close-cart" id="close-cart" aria-label="Close Cart">&times;</button>
+    </header>
+    <div id="cart-items" role="region" aria-live="polite" aria-relevant="additions">
+      <p>Your cart is empty.</p>
+    </div>
+    <form id="coupon-form" style="padding: 0 1rem;">
+      <label for="coupon-code">Discount Coupon</label>
+      <input type="text" id="coupon-code" name="coupon" placeholder="Enter coupon code" style="width: 100%; padding: 0.5rem; margin: 0.25rem 0; border-radius: 4px; border: 1px solid #ccc;"/>
+      <button type="submit" class="btn-primary" style="margin-bottom: 1rem;">Apply Coupon</button>
+      <small id="coupon-message" aria-live="polite"></small>
+    </form>
+    <div id="shipping-calculator" style="padding: 0 1rem;">
+      <label for="shipping-country">Shipping Country</label>
+      <select id="shipping-country" name="shipping-country" style="width: 100%; padding: 0.5rem; margin: 0.25rem 0; border-radius: 4px; border: 1px solid #ccc;">
+        <option value="">Select country</option>
+        <option value="India">India</option>
+        <option value="USA">United States</option>
+        <option value="UK">United Kingdom</option>
+        <option value="Other">Other</option>
+      </select>
+      <button id="calculate-shipping" class="btn-primary" style="margin-bottom: 1rem;">Calculate Shipping</button>
+      <div id="shipping-cost" aria-live="polite" style="margin-bottom: 1rem;"></div>
+    </div>
+    <button id="checkout-btn" disabled>Checkout</button>
+  </aside>
+
+  <!-- Size Chart Popup -->
+  <div class="popup-overlay" id="size-chart-popup" role="dialog" aria-modal="true" aria-labelledby="sizeChartTitle" hidden>
+    <div class="popup">
+      <button class="close-popup" id="close-size-chart" aria-label="Close Size Chart">&times;</button>
+      <h3 id="sizeChartTitle">Size Chart</h3>
+      <table>
+        <thead>
+          <tr><th>Size</th><th>Chest (inches)</th><th>Waist (inches)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>S</td><td>34-36</td><td>28-30</td></tr>
+          <tr><td>M</td><td>38-40</td><td>32-34</td></tr>
+          <tr><td>L</td><td>42-44</td><td>36-38</td></tr>
+          <tr><td>XL</td><td>46-48</td><td>40-42</td></tr>
+        </tbody>
+      </table>
+      <p>Note: Measurements are approximate. Please check carefully before ordering.</p>
+    </div>
+  </div>
+
+  <!-- Account Modal (Login/Register & Profile) -->
+  <div class="popup-overlay" id="account-modal" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle" hidden>
+    <div class="popup" role="document">
+      <button class="close-popup" id="close-account" aria-label="Close User Account">&times;</button>
+      <h3 id="accountModalTitle">User Account</h3>
+
+      <div id="login-register-forms">
+        <button onclick="showLogin()" style="margin: 0 0.5rem 1rem 0; padding: 0.5rem 1rem; border:none; background: var(--neon-red-orange); color: black; font-weight: 700; cursor: pointer;">Login</button>
+        <button onclick="showRegister()" style="padding: 0.5rem 1rem; border:none; background: var(--black); color: var(--neon-red-orange); font-weight: 700; cursor: pointer;">Register</button>
+      </div>
+
+      <form id="login-form" style="display:none;" onsubmit="handleLogin(event)" aria-label="Login Form" novalidate>
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" required />
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" required />
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+
+      <form id="register-form" style="display:none;" onsubmit="handleRegister(event)" aria-label="Register Form" novalidate>
+        <label for="register-name">Name:</label>
+        <input type="text" id="register-name" required />
+        <label for="register-email">Email:</label>
+        <input type="email" id="register-email" required />
+        <label for="register-password">Password:</label>
+        <input type="password" id="register-password" required />
+        <button type="submit" class="btn-primary">Register</button>
+      </form>
+
+      <div id="account-details" style="display:none;">
+        <h4>Welcome, <span id="user-name"></span></h4>
+        <button id="logout-btn" class="btn-primary" style="margin-top: 1rem;">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Modal (Simplified) -->
+  <div class="popup-overlay" id="admin-modal" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle" hidden>
+    <div class="popup" role="document" style="max-width: 700px;">
+      <button class="close-popup" id="close-admin" aria-label="Close Admin Panel">&times;</button>
+      <h3 id="adminModalTitle">Admin Control Panel</h3>
+
+      <div id="admin-login-section">
+        <form id="admin-login-form" onsubmit="handleAdminLogin(event)" aria-label="Admin Login Form">
+          <label for="admin-username">Username:</label>
+          <input type="text" id="admin-username" required />
+          <label for="admin-password">Password:</label>
+          <input type="password" id="admin-password" required />
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+      </div>
+
+      <div id="admin-dashboard" style="display:none;">
+        <h4>Dashboard</h4>
+        <div>
+          <p><strong>Orders:</strong> <span id="admin-orders-count">0</span></p>
+          <p><strong>Customers:</strong> <span id="admin-customers-count">0</span></p>
+          <p><strong>Inventory:</strong> <span id="admin-inventory-count">0</span></p>
+          <p><strong>Revenue:</strong> ₹<span id="admin-revenue">0.00</span></p>
+          <!-- Placeholder for analytics graphs -->
+          <p><em>Analytics, discount management, returns, and messages coming soon...</em></p>
+          <button id="admin-logout" class="btn-primary" style="margin-top: 1rem;">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Variables
+    const products = [
+      {
+        id: 1,
+        title: "Sunset Neon Hoodie",
+        price: 49.99,
+        images: [
+          "https://images.unsplash.com/photo-1616628184546-f76d17e00a12?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1616628196283-19fbbd3340f7?auto=format&fit=crop&w=800&q=80"
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Black", "Neon Red-Orange"],
+        rating: 4.5,
+        reviews: 34,
+        stock: 5,
+        trending: true,
+        care: "Machine wash cold with similar colors, tumble dry low.",
+      },
+      {
+        id: 2,
+        title: "Galactic Print Shirt",
+        price: 39.99,
+        images: [
+          "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"
+        ],
+        sizes: ["S", "M", "L"],
+        colors: ["White", "Black"],
+        rating: 4.8,
+        reviews: 18,
+        stock: 2,
+        trending: false,
+        care: "Hand wash recommended, do not bleach.",
+      },
+      {
+        id: 3,
+        title: "Urban Vibe T-Shirt",
+        price: 29.99,
+        images: [
+          "https://images.unsplash.com/photo-1520975863703-e1c2bcc7e872?auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1520975932291-301c5ec074a4?auto=format&fit=crop&w=800&q=80"
+        ],
+        sizes: ["M", "L", "XL"],
+        colors: ["Grey", "Neon Red-Orange"],
+        rating: 4.2,
+        reviews: 42,
+        stock: 10,
+        trending: true,
+        care: "Machine wash warm, inside out, gentle cycle.",
+      }
+    ];
+
+    const blogPosts = [
+      {
+        id: 1,
+        title: "New Drop: Neon Nights Collection",
+        image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Discover the vibrant colors and exclusive prints of our Neon Nights collection - designed for bold streetwear lovers."
+      },
+      {
+        id: 2,
+        title: "How to Style a Printed Hoodie",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Looking for ways to rock your printed hoodie? Check out our top styling tips for a modern streetwear look."
+      }
+    ];
+
+    // Rendering products
+    const productsGrid = document.getElementById('products-grid');
+    function renderStars(rating) {
+      let starsHTML = '';
+      const fullStars = Math.floor(rating);
+      const halfStar = rating % 1 >= 0.5;
+      for (let i = 0; i < fullStars; i++) starsHTML += '★';
+      if (halfStar) starsHTML += '½';
+      return starsHTML;
+    }
+    function renderProducts() {
+      productsGrid.innerHTML = '';
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+
+        // Images with zoom and swipe - simplified as single main image with hover zoom;
+        // Swipe would require extra JS libraries like Swiper.js for full effect.
+        card.innerHTML = `
+          <div class="product-img-wrapper" tabindex="0" aria-label="${product.title} product images">
+            <img src="${product.images[0]}" alt="${product.title}" />
+            ${product.stock <= 3 ? '<div class="badge low-stock">Low Stock</div>' : ''}
+            ${product.trending ? '<div class="badge" style="top: 35px;">Trending</div>' : ''}
+            <span class="wishlist-icon" role="button" aria-label="Add to wishlist">&#9825;</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">${product.title}</h3>
+            <p class="product-price">₹${product.price.toFixed(2)}</p>
+            <div class="product-options">
+              <label for="size-${product.id}">Size:</label>
+              <select id="size-${product.id}" aria-label="Select size for ${product.title}">
+                ${product.sizes.map(s => `<option value="${s}">${s}</option>`).join('')}
+              </select>
+              <button class="btn-info" type="button" aria-label="Size chart for ${product.title}" style="background:none; border:none; cursor:pointer; color: var(--neon-red-orange);" onclick="openSizeChart()">[Size Chart]</button>
+            </div>
+            <div class="product-options">
+              <label for="color-${product.id}">Color:</label>
+              <select id="color-${product.id}" aria-label="Select color for ${product.title}">
+                ${product.colors.map(c => `<option value="${c}">${c}</option>`).join('')}
+              </select>
+            </div>
+            <div class="product-options">
+              <label for="quantity-${product.id}">Qty:</label>
+              <input type="number" id="quantity-${product.id}" min="1" max="${product.stock}" value="1" aria-label="Select quantity for ${product.title}" />
+            </div>
+            <button class="btn-add-cart" data-product-id="${product.id}">Add to Cart</button>
+            <div class="reviews" aria-label="${product.rating} star rating based on ${product.reviews} reviews">
+              <span class="stars">${renderStars(product.rating)}</span>(${product.reviews} reviews)
+            </div>
+            <details style="margin-top:0.5rem;">
+              <summary>Care Info</summary>
+              <p>${product.care}</p>
+            </details>
+          </div>
+        `;
+        productsGrid.appendChild(card);
+
+        // Wishlist toggle
+        card.querySelector('.wishlist-icon').addEventListener('click', (e) => {
+          e.target.classList.toggle('active');
+          alert(`Wishlist ${e.target.classList.contains('active') ? 'added' : 'removed'} for "${product.title}"`);
+        });
+      });
+    }
+    renderProducts();
+
+    // Blog posts rendering
+    const blogPostsContainer = document.getElementById('blog-posts');
+    blogPosts.forEach(post => {
+      const postEl = document.createElement('article');
+      postEl.className = 'blog-post';
+      postEl.innerHTML = `
+        <img src="${post.image}" alt="${post.title}" />
+        <div class="blog-content">
+          <h3>${post.title}</h3>
+          <p>${post.excerpt}</p>
+        </div>
+      `;
+      blogPostsContainer.appendChild(postEl);
+    });
+
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Mobile nav toggle
+    const menuIcon = document.getElementById('menu-icon');
+    const navLinks = document.getElementById('nav-links');
+    menuIcon.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Size Chart Popup
+    const sizeChartPopup = document.getElementById('size-chart-popup');
+    const closeSizeChartBtn = document.getElementById('close-size-chart');
+    function openSizeChart() {
+      sizeChartPopup.hidden = false;
+      sizeChartPopup.classList.add('active');
+    }
+    function closeSizeChart() {
+      sizeChartPopup.hidden = true;
+      sizeChartPopup.classList.remove('active');
+    }
+    closeSizeChartBtn.addEventListener('click', closeSizeChart);
+    window.addEventListener('click', e => { if(e.target === sizeChartPopup) closeSizeChart(); });
+
+    // Cart Functionality
+    const cartBtn = document.getElementById('cart-btn');
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const closeCartBtn = document.getElementById('close-cart');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    let cart = JSON.parse(localStorage.getItem('swearverse-cart')) || [];
+
+    function updateCartStorage() {
+      localStorage.setItem('swearverse-cart', JSON.stringify(cart));
+    }
+
+    function renderCart() {
+      cartItemsContainer.innerHTML = '';
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        checkoutBtn.disabled = true;
+        return;
+      }
+      checkoutBtn.disabled = false;
+      cart.forEach(item => {
+        const product = products.find(p => p.id === item.id);
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+          <img src="${product.images[0]}" alt="${product.title}" />
+          <div class="cart-item-details">
+            <div class="cart-item-title">${product.title}</div>
+            <div class="cart-item-qty">Size: ${item.size}, Color: ${item.color}, Qty: ${item.quantity}</div>
+            <div class="cart-item-price">₹${(product.price * item.quantity).toFixed(2)}</div>
+          </div>
+          <button aria-label="Remove ${product.title} from cart" style="background:none; border:none; color: var(--neon-red-orange); font-size: 1.2rem; cursor:pointer;">&times;</button>
+        `;
+        const removeBtn = cartItem.querySelector('button');
+        removeBtn.addEventListener('click', () => {
+          cart = cart.filter(i => !(i.id === item.id && i.size === item.size && i.color === item.color));
+          updateCartStorage();
+          renderCart();
+        });
+        cartItemsContainer.appendChild(cartItem);
+      });
+    }
+
+    cartBtn.addEventListener('click', () => {
+      cartSidebar.hidden = false;
+      cartSidebar.classList.add('active');
+      renderCart();
+    });
+    closeCartBtn.addEventListener('click', () => {
+      cartSidebar.classList.remove('active');
+      setTimeout(() => (cartSidebar.hidden = true), 300);
+    });
+
+    // Add To Cart buttons
+    document.body.addEventListener('click', (e) => {
+      if (e.target.classList.contains('btn-add-cart')) {
+        const productId = parseInt(e.target.getAttribute('data-product-id'));
+        const sizeSelect = document.getElementById('size-' + productId);
+        const colorSelect = document.getElementById('color-' + productId);
+        const quantityInput = document.getElementById('quantity-' + productId);
+
+        const size = sizeSelect ? sizeSelect.value : 'M';
+        const color = colorSelect ? colorSelect.value : 'Black';
+        let quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+        if (quantity < 1) quantity = 1;
+
+        // Add or update cart
+        const existingIndex = cart.findIndex(i => i.id === productId && i.size === size && i.color === color);
+        if (existingIndex >= 0) {
+          cart[existingIndex].quantity += quantity;
+        } else {
+          cart.push({ id: productId, size, color, quantity });
+
